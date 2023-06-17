@@ -128,12 +128,10 @@ const updateCurrentUser = function () {
   axios.put(`http://localhost:3000/todos/${id}`, updatedData)
     .then(function () {
       const userIndex = data.findIndex(user => user.id === id);
-      if (userIndex !== -1) {
-        data[userIndex] = {
-          id: id,
-          ...updatedData
-        };
-      }
+      data[userIndex] = {
+        id: id,
+        ...updatedData
+      };
       trUpdate.classList.remove("updateUser");
       btnComplete.className = "add";
       deleteInputValue();
